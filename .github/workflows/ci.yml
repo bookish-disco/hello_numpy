@@ -37,6 +37,7 @@ jobs:
     - name: test miniconda
       run: |
         export PATH=${PATH}:~/miniconda/bin
-        python --version
-        which python
+        ~/miniconda/bin/python --version
+        ~/miniconda/bin/pip install numpy
+        ~/miniconda/bin/python numpy_test.py
 
