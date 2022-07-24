@@ -17,11 +17,12 @@ jobs:
     - name: prepare system
       run: |
         export DEBIAN_FRONTEND=noninteractive
-        apt-get update && apt-get install -y \
-          build-essential git cmake \
+        apt-get update 1>/dev/null \
+        && apt-get install -y \
+          build-essential git cmake wget \
           clang \
           libstdc++-10-dev libssl-dev libxxhash-dev zlib1g-dev pkg-config \
-          wget
+          1>/dev/null 
         ls
         lscpu
         free -h
