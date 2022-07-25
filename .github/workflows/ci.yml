@@ -26,11 +26,11 @@ jobs:
         lscpu
         free -h
 
-    - name: install miniconda
+    - name: install pkgs
       run: |
-        bash scripts/install_conda.sh
+        bash scripts/install_pkgs.sh
     
-    - name: test miniconda
+    - name: run test
       run: |
-        bash scripts/install_numpy.sh
+        bash scripts/run_test.sh
 
