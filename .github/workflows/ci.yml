@@ -14,23 +14,23 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: prepare system
+    - name: Prepare system
       run: |
         export DEBIAN_FRONTEND=noninteractive
         apt-get update 1>/dev/null \
         && apt-get install -y \
-          build-essential git cmake wget \
-          clang \
-          libstdc++-10-dev libssl-dev libxxhash-dev zlib1g-dev pkg-config \
+            build-essential git cmake \
+            curl wget \
+            clang libstdc++-10-dev libssl-dev libxxhash-dev zlib1g-dev pkg-config \
           1>/dev/null 
         lscpu
         free -h
 
-    - name: install pkgs
+    - name: Install pkgs
       run: |
         bash scripts/install_pkgs.sh
     
-    - name: run test
+    - name: Run test
       run: |
         bash scripts/run_test.sh
 
